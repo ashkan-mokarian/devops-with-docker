@@ -1,0 +1,3 @@
+[submodule "material-applications"]
+	path = material-applications
+	url = https://github.com/docker-hy/material-applications.git
