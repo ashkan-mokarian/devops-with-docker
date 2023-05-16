@@ -1,6 +1,9 @@
 # Intro to Docker
 Notes, homeworks, and projects for [devops-with-docker](https://devopswithdocker.com/).
 
+# Next Step
+* Finish the mandatory exercises [here](https://devopswithdocker.com/part-1/section-6)
+
 # TOC
 
 * [Section: Basics](#docker-basics) Docker image, container, listing, removing, running, tags, flags, attaching, executing command in a container
@@ -11,7 +14,7 @@ Notes, homeworks, and projects for [devops-with-docker](https://devopswithdocker
 
 * [Simple example](./00-basic/Dockerfile)
 * [ENTRYPOINT and CMD](./00-basic/youtube-dl.Dockerfile)
-* [Interaction](./01-port-with-ruby/)
+* [Interaction](./01-port-with-ruby/) - explanation [here](https://devopswithdocker.com/part-1/section-6)
 
 # Notes
 

@@ -2,6 +2,8 @@
 00-basic/**
 !00-basic/Dockerfile
 !00-basic/youtube-dl.Dockerfile
+!00-basic/hello.sh
+01-port-with-ruby/rails-example-project
 
 # OS X
 .DS_Store
