@@ -2,13 +2,13 @@
 Notes, homeworks, and projects for [devops-with-docker](https://devopswithdocker.com/).
 
 # Next Step
-* Finish the mandatory exercises [here](https://devopswithdocker.com/part-1/section-6)
 
 # TOC
 
 * [Section: Basics](#docker-basics) Docker image, container, listing, removing, running, tags, flags, attaching, executing command in a container
 * [Section: Dockerfile](#dockerfile) Dockerfile, basic example, ENTRYPOINT, CMD
 * [Section: Interaction](#interacting-with-containers-via-volume-and-ports) mounted volume; port; securing open ports;
+* [Section: General Considerations especially for building on M1](#general-consideration): Solution to qemu-x86_64 error;
 
 # Examples
 
@@ -16,6 +16,7 @@ Notes, homeworks, and projects for [devops-with-docker](https://devopswithdocker
 * [ENTRYPOINT and CMD](./00-basic/youtube-dl.Dockerfile)
 * [Interaction](./01-port-with-ruby/) - explanation [here](https://devopswithdocker.com/part-1/section-6)
 * [Ex01: frontend](./ex01-frontend/)
+* [Ex02: backend](./ex02-backend/)
 
 # Notes
 
@@ -98,3 +99,9 @@ For limiting the protocol to 'udp' only for example use: `EXPOSE <port>/udp` and
 
 ### **Security** concerns
 By default when running `-p 3456:3000`, we open the 3456 port to anyone, even from outside cuz its the same as `-p 0.0.0.0:3456:3000`. In order to prevent that and only allowing local host to connect to that port is by using `-p 127.0.0.1:3456:3000`. Usually however, this is not risky, but should be considered in particular for specific applications.
+
+## General Consideration
+
+### Building on ARM architectures, M1
+
+When building from an image like ubuntu, I don't know why but the emulated framework looks for x86_64 pathes where the image was built on a arm arch for example M1 mac. For example, when building the [backend exercise](./ex02-backend/), which builds from the original ubuntu image, and then downloading the Linux tar file for installing golang, the container will look for x86_64 library paths and lead to the following error "qemu-x86_64: Could not open '/lib64/ld-linux-x86-64.so.2': No such file or directory". Workarounds to this problem is shown for example [here](https://stackoverflow.com/questions/71040681/qemu-x86-64-could-not-open-lib64-ld-linux-x86-64-so-2-no-such-file-or-direc), and what I used here was just building the image with the platform option `docker build --platform linux/amd64`. 'amd64' is the same as x86_64 and different from arm64.

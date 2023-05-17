@@ -5,6 +5,7 @@
 !00-basic/hello.sh
 01-port-with-ruby/rails-example-project
 ex01-frontend/example-frontend
+ex02-backend/example-backend
 
 # OS X
 .DS_Store
