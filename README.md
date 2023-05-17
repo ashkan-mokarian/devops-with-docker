@@ -15,6 +15,7 @@ Notes, homeworks, and projects for [devops-with-docker](https://devopswithdocker
 * [Simple example](./00-basic/Dockerfile)
 * [ENTRYPOINT and CMD](./00-basic/youtube-dl.Dockerfile)
 * [Interaction](./01-port-with-ruby/) - explanation [here](https://devopswithdocker.com/part-1/section-6)
+* [Ex01: frontend](./ex01-frontend/)
 
 # Notes
 
